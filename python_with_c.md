@@ -6,7 +6,8 @@ python一直以来被作为一种快速开发的PL使用，很多工程都将其
 
 这里做一下简要记录：
 
-=========================================================
+<code>
+//=========================================================
 
 quick start
 env :  centos7 gcc4.8
@@ -39,6 +40,7 @@ testlib = ctypes.CDLL(os.path.join(CUR_DICT_PATH,"libtest.so"))
 testlib.hello()
 
 =========================================================
+</code>
 
 如果是c++ 的core,则需要使用 extern 关键字（extern "C" makes a function-name in C++ have 'C' linkage (compiler does not mangle the name) so that client C code can link to (i.e use) your function using a 'C' compatible header file that contains just the declaration of your function. Your function definition is contained in a binary format (that was compiled by your C++ compiler) that the client 'C' linker will then link to using the 'C' name.）
 
