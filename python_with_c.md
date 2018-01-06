@@ -15,7 +15,9 @@ python一直以来被作为一种快速开发的PL使用，很多工程都将其
 #include <stdio.h>  
 
 void hello(){
+
     printf("hello world!\n");
+
 }
 </code>
 
@@ -27,10 +29,13 @@ gcc -shared -o libtest.so -fPIC test.c
 ### testwrapper.py
 <code>
 import sys,os
+
 import ctypes
+
 CUR_DICT_PATH = os.path.split(os.path.realpath(__file__))[0]
-print CUR_DICT_PATH
+
 testlib = ctypes.CDLL(os.path.join(CUR_DICT_PATH,"libtest.so"))
+
 testlib.hello()
 </code>
 
@@ -39,10 +44,13 @@ testlib.hello()
 如果是c++ 的core,则需要使用 extern 关键字（extern "C" makes a function-name in C++ have 'C' linkage (compiler does not mangle the name) so that client C code can link to (i.e use) your function using a 'C' compatible header file that contains just the declaration of your function. Your function definition is contained in a binary format (that was compiled by your C++ compiler) that the client 'C' linker will then link to using the 'C' name.）
 
 <code>
+
 #include <iostream>
 
 extern "C" void hello(){
+
  std::cout << "hello world!Fine" << std::endl;
+
 }
 </code>
 =========================================================
