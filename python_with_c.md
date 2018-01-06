@@ -19,6 +19,7 @@ void hello(){
     printf("hello world!\n");
 
 }
+
 </code>
 
 ### compile to shared lib
@@ -52,7 +53,9 @@ extern "C" void hello(){
  std::cout << "hello world!Fine" << std::endl;
 
 }
+
 </code>
+
 =========================================================
 
 ctypes tries to protect you from calling functions with the wrong number of arguments or the wrong calling convention. Unfortunately this only works on Windows.
@@ -94,6 +97,7 @@ Passing pointers
 
  
 <code>
+
 >>> i = c_int()
 >>> f = c_float()
 >>> s = create_string_buffer('\000' * 32)
