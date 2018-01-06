@@ -6,52 +6,45 @@ python一直以来被作为一种快速开发的PL使用，很多工程都将其
 
 这里做一下简要记录：
 
+## quick start
+
+### env :  centos7 gcc4.8
+
+### test.c 
 <code>
-//=========================================================
-
-quick start
-env :  centos7 gcc4.8
-
-// test.c 
-
 #include <stdio.h>  
 
 void hello(){
-
     printf("hello world!\n");
-
 }
+</code>
 
-// compile to shared lib
-
+### compile to shared lib
+<code>
 gcc -shared -o libtest.so -fPIC test.c
-// testwrapper.py
+</code>
 
+### testwrapper.py
+<code>
 import sys,os
-
 import ctypes
-
 CUR_DICT_PATH = os.path.split(os.path.realpath(__file__))[0]
-
 print CUR_DICT_PATH
-
 testlib = ctypes.CDLL(os.path.join(CUR_DICT_PATH,"libtest.so"))
-
 testlib.hello()
+</code>
 
 =========================================================
-</code>
 
 如果是c++ 的core,则需要使用 extern 关键字（extern "C" makes a function-name in C++ have 'C' linkage (compiler does not mangle the name) so that client C code can link to (i.e use) your function using a 'C' compatible header file that contains just the declaration of your function. Your function definition is contained in a binary format (that was compiled by your C++ compiler) that the client 'C' linker will then link to using the 'C' name.）
 
+<code>
 #include <iostream>
 
 extern "C" void hello(){
-
  std::cout << "hello world!Fine" << std::endl;
-
 }
-
+</code>
 =========================================================
 
 ctypes tries to protect you from calling functions with the wrong number of arguments or the wrong calling convention. Unfortunately this only works on Windows.
@@ -88,12 +81,11 @@ Passing pointers
 
 这一部分，我不太认同文档中所述的passing-by-reference。在C的设计中，不存在引用传值的语义，所有的均为passing-by-value的方式。可能这里描述的引用指的是指向数据区域的指针是该区域的引用吧。
 
- 
 
 这个功能通过byref()实现。
 
  
-
+<code>
 >>> i = c_int()
 >>> f = c_float()
 >>> s = create_string_buffer('\000' * 32)
@@ -104,3 +96,5 @@ Passing pointers
 3
 >>> print i.value, f.value, repr(s.value)
 1 3.1400001049 'Hello'
+
+</code>
