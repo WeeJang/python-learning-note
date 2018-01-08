@@ -24,10 +24,15 @@ pykafka-docs-io : http://pykafka.readthedocs.io/en/latest/usage.html?highlight=o
 
 <code>
 consumer = topic.get_simple_consumer(
+
     consumer_group="mygroup",
+
     auto_offset_reset=OffsetType.LATEST
+
 )
+
 consumer.consume()
+
 consumer.commit_offsets()
 </code>
 
@@ -35,7 +40,9 @@ consumer.commit_offsets()
 
 <code>
 consumer_2 = topic.get_simple_consumer(
+
     consumer_group="mygroup"
+
 )
 </code>
 
@@ -43,8 +50,11 @@ consumer_2 = topic.get_simple_consumer(
 
 <code>
 consumer_3 = topic.get_simple_consumer(
+
     consumer_group="mygroup",
+
     auto_offset_reset=OffsetType.EARLIEST,
+
     reset_offset_on_start=True
 )
 </code> 
