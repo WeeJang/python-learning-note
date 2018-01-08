@@ -28,9 +28,7 @@ consumer = topic.get_simple_consumer(
     consumer_group="mygroup",
 
     auto_offset_reset=OffsetType.LATEST
-
 )
-
 consumer.consume()
 
 consumer.commit_offsets()
@@ -42,7 +40,6 @@ consumer.commit_offsets()
 consumer_2 = topic.get_simple_consumer(
 
     consumer_group="mygroup"
-
 )
 </code>
 
