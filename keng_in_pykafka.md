@@ -30,7 +30,6 @@ consumer = topic.get_simple_consumer(
     auto_offset_reset=OffsetType.LATEST
 )
 consumer.consume()
-
 consumer.commit_offsets()
 </code>
 
