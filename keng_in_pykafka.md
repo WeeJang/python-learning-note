@@ -14,9 +14,8 @@
 
 ## 关于启动时offset	
 
-```bash
-pykafka-docs-io : http://pykafka.readthedocs.io/en/latest/usage.html?highlight=offset
-```
+
+ 参考[pykafka-docs-io](http://pykafka.readthedocs.io/en/latest/usage.html?highlight=offset)
 
 ## assuming "mygroup" has no committed offsets
 
