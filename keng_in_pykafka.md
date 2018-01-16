@@ -7,50 +7,44 @@
 这个还没看： http://www.infoq.com/cn/articles/kafka-analysis-part-4
 
 查询消费情况：
-<code>
-./kafka-consumer-groups.sh --bootstrap-server 192.168.2.64:9092 --describe --group jwgroup
-</code>
 
+```bash
+./kafka-consumer-groups.sh --bootstrap-server 192.168.2.64:9092 --describe --group jwgroup
+```
 
 ## 关于启动时offset	
 
-<code>
+```bash
 pykafka-docs-io : http://pykafka.readthedocs.io/en/latest/usage.html?highlight=offset
-</code> 
+```
 
 ## assuming "mygroup" has no committed offsets
 
 ### starts from the latest available offset
 
-<code>
+```python
 consumer = topic.get_simple_consumer(
-
     consumer_group="mygroup",
-
     auto_offset_reset=OffsetType.LATEST
 )
 consumer.consume()
 consumer.commit_offsets()
-</code>
+```
 
 ### starts from the last committed offset
 
-<code>
+```python
 consumer_2 = topic.get_simple_consumer(
-
     consumer_group="mygroup"
 )
-</code>
+```
 
 ### starts from the earliest available offset
 
-<code>
+```python
 consumer_3 = topic.get_simple_consumer(
-
     consumer_group="mygroup",
-
     auto_offset_reset=OffsetType.EARLIEST,
-
     reset_offset_on_start=True
 )
-</code> 
+```
