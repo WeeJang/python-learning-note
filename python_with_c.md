@@ -13,8 +13,7 @@ python一直以来被作为一种快速开发的PL使用，很多工程都将其
     centos7 gcc4.8
 
 ### test.c 
-<code>
-
+```c++
 #include <stdio.h>  
 
 void hello(){
@@ -22,41 +21,33 @@ void hello(){
     printf("hello world!\n");
 
 }
-</code>
-
+```
 ### compile to shared lib
-<code>
+```bash
 gcc -shared -o libtest.so -fPIC test.c
-</code>
-
+```
 ### testwrapper.py
-<code>
+```python
 import sys,os
-
 import ctypes
 
 CUR_DICT_PATH = os.path.split(os.path.realpath(__file__))[0]
-
 testlib = ctypes.CDLL(os.path.join(CUR_DICT_PATH,"libtest.so"))
 
 testlib.hello()
-</code>
+```
 
 =========================================================
 
 如果是c++ 的core,则需要使用 extern 关键字（extern "C" makes a function-name in C++ have 'C' linkage (compiler does not mangle the name) so that client C code can link to (i.e use) your function using a 'C' compatible header file that contains just the declaration of your function. Your function definition is contained in a binary format (that was compiled by your C++ compiler) that the client 'C' linker will then link to using the 'C' name.）
 
-<code>
-
+```c++
 #include <iostream>
 
 extern "C" void hello(){
-
  std::cout << "hello world!Fine" << std::endl;
-
 }
-
-</code>
+```
 
 =========================================================
 
@@ -98,8 +89,7 @@ Passing pointers
 这个功能通过byref()实现。
 
  
-<code>
-
+```python
 >>> i = c_int()
 
 >>> f = c_float()
@@ -119,4 +109,4 @@ Passing pointers
 
 1 3.1400001049 'Hello'
 
-</code>
+```
