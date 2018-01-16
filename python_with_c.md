@@ -89,22 +89,13 @@ Passing pointers
  
 ```python
 >>> i = c_int()
-
 >>> f = c_float()
-
 >>> s = create_string_buffer('\000' * 32)
-
 >>> print i.value, f.value, repr(s.value)
-
 0 0.0 ''
-
 >>> libc.sscanf("1 3.14 Hello", "%d %f %s",
 ...             byref(i), byref(f), s)
-
 3
-
 >>> print i.value, f.value, repr(s.value)
-
 1 3.1400001049 'Hello'
-
 ```
