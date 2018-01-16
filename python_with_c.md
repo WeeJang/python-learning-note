@@ -17,9 +17,7 @@ python一直以来被作为一种快速开发的PL使用，很多工程都将其
 #include <stdio.h>  
 
 void hello(){
-
     printf("hello world!\n");
-
 }
 ```
 ### compile to shared lib
